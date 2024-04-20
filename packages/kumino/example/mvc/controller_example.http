@@ -1,0 +1,18 @@
+@baseUrl = http://127.0.0.1:61234
+
+GET {{baseUrl}}/health HTTP/1.1
+
+###
+GET {{baseUrl}}/api/v1/resource HTTP/1.1
+
+###
+POST {{baseUrl}}/api/v1/resource HTTP/1.1
+
+###
+PUT {{baseUrl}}/api/v1/resource HTTP/1.1
+
+###
+PATCH {{baseUrl}}/api/v1/resource HTTP/1.1
+
+###
+DELETE {{baseUrl}}/api/v1/resource HTTP/1.1

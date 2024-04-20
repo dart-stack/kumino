@@ -1,16 +1,9 @@
-import 'package:kumino/kumino.dart';
-import 'package:test/test.dart';
+import 'dart:io';
+
+import 'package:test/scaffolding.dart';
 
 void main() {
-  group('A group of tests', () {
-    final awesome = Awesome();
-
-    setUp(() {
-      // Additional setup goes here.
-    });
-
-    test('First Test', () {
-      expect(awesome.isAwesome, isTrue);
-    });
+  test("should", () {
+    Platform.environment;
   });
 }
