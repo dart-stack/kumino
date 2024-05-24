@@ -1,0 +1,12 @@
+targets:
+  $default:
+    builders:
+      kumino|_codegen: {}
+
+builders:
+  _codegen:
+    import: 'tool/codegen.dart'
+    builder_factories: ['codegen']
+    build_extensions:
+      $lib$: ['kumino.g.dart']
+    build_to: source

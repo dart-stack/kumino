@@ -17,20 +17,12 @@ include: package:lints/recommended.yaml
 
 linter:
   rules:
-    - avoid_slow_async_io
-    - avoid_void_async
     - prefer_relative_imports
-    - prefer_single_quotes
-    - prefer_void_to_null
-    - cascade_invocations
-    - discarded_futures
-    - lines_longer_than_80_chars
 
-analyzer:
-  exclude:
-    - '**/*.stub.dart'
-    - '**/*.mocks.dart'
-    - '**/*.g.dart'
+
+# analyzer:
+#   exclude:
+#     - path/to/excluded/files/**
 
 # For more information about the core and recommended set of lints, see
 # https://dart.dev/go/core-lints

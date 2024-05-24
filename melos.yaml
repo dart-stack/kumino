@@ -1,0 +1,7 @@
+name: kumino_monorepo
+
+packages:
+  - packages/**
+
+scripts:
+  test: melos exec -- dart test

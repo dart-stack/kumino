@@ -4,17 +4,21 @@ version: 0.0.0
 repository: https://github.com/dart-stack/kumino
 
 environment:
-  sdk: ^3.3.2
+  sdk: '>=3.3.0 <4.0.0'
 
 # Add regular dependencies here.
 dependencies:
   build: ^2.4.1
-  reflectable: ^4.0.6
+  code_builder: ^4.10.0
+  glob: ^2.1.2
   spry: ^3.2.3
 
 dev_dependencies:
+  ansicolor: ^2.0.2
   build_runner: ^2.4.9
   build_test: ^2.2.2
   lints: ^3.0.0
   mockito: ^5.4.4
   test: ^1.24.0
+  
+

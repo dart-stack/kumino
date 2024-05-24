@@ -1,56 +1,64 @@
+class Controllers {
+  const Controllers(this.controllers);
 
-class Controller {
-  const Controller();
+  final List<Type> controllers;
 }
 
-enum HttpMethod { get, post, put, delete, patch }
+class Controller {}
 
-class HttpEndpoint {
-  final String path;
-  final HttpMethod method;
+class ApiController implements Controller {
+  const ApiController({
+    this.prefix = '',
+    this.interceptors = const [],
+  });
 
-  const HttpEndpoint({
+  final String prefix;
+  final List<Type> interceptors;
+}
+
+class RouteMapping {
+  const RouteMapping({
     required this.path,
     required this.method,
+    this.interceptors = const [],
   });
+
+  final String method;
+  final String path;
+  final List<Type> interceptors;
 }
 
-class HttpGet extends HttpEndpoint {
+class HttpGet extends RouteMapping {
   const HttpGet({
     required super.path,
-  }) : super(
-          method: HttpMethod.get,
-        );
+    super.interceptors,
+  }) : super(method: 'GET');
 }
 
-class HttpPost extends HttpEndpoint {
+class HttpPost extends RouteMapping {
   const HttpPost({
     required super.path,
-  }) : super(
-          method: HttpMethod.post,
-        );
+    super.interceptors,
+  }) : super(method: 'POST');
 }
 
-class HttpPut extends HttpEndpoint {
+class HttpPut extends RouteMapping {
   const HttpPut({
     required super.path,
-  }) : super(
-          method: HttpMethod.put,
-        );
+    super.interceptors,
+  }) : super(method: 'PUT');
 }
 
-class HttpPatch extends HttpEndpoint {
-  const HttpPatch({
-    required super.path,
-  }) : super(
-          method: HttpMethod.patch,
-        );
-}
-
-class HttpDelete extends HttpEndpoint {
+class HttpDelete extends RouteMapping {
   const HttpDelete({
     required super.path,
-  }) : super(
-          method: HttpMethod.delete,
-        );
+    super.interceptors,
+  }) : super(method: 'DELETE');
+}
+
+class HttpPatch extends RouteMapping {
+  const HttpPatch({
+    required super.path,
+    super.interceptors,
+  }) : super(method: 'PATCH');
 }
