@@ -1,11 +1,15 @@
-class Components {
-  const Components({
+import 'package:meta/meta_meta.dart';
+
+@Target({TargetKind.classType})
+class ComponentsAnnotation {
+  const ComponentsAnnotation({
     this.imports = const [],
   });
 
   final List<Type> imports;
 }
 
-class Component {
-  const Component();
+@Target({TargetKind.classType})
+class ComponentAnnotation {
+  const ComponentAnnotation();
 }

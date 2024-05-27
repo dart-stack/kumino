@@ -10,7 +10,10 @@ environment:
 dependencies:
   build: ^2.4.1
   code_builder: ^4.10.0
+  diffutil_dart: ^4.0.1
   glob: ^2.1.2
+  meta: ^1.15.0
+  routingkit: ^0.2.1
   spry: ^3.2.3
 
 dev_dependencies:

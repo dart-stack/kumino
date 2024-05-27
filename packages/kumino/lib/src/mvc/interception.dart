@@ -1,6 +1,7 @@
 import 'dart:async';
+import 'dart:io';
 
-import '../http/request.dart';
+// import '../http/request.dart';
 
 // TODO: Supports add an interceptor with high-order function?
 

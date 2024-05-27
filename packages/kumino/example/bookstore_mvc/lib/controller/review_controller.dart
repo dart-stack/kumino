@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:kumino/kumino.dart';
+import 'package:kumino/annotations.dart';
 
 import '../service/member.dart';
 
@@ -12,13 +15,13 @@ class ReviewController {
 
   final MemberService memberService;
 
-  @HttpPut(path: "/new-member/reviews/{reviewId}/approved")
+  @PutRoute(path: "/new-member/reviews/{reviewId}/approved")
   Future approveNewMember(HttpRequest request) async {
     final reviewId = request.params.value<String>("reviewId");
     await memberService.approveNewMember(reviewId);
   }
 
-  @HttpPut(path: "/new-member/reviews/{reviewId}/rejected")
+  @PutRoute(path: "/new-member/reviews/{reviewId}/rejected")
   Future rejectNewMember(HttpRequest request) async {
     final reviewId = request.params.value<String>("reviewId");
     await memberService.rejectNewMember(reviewId);

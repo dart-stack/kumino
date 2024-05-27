@@ -1,4 +1,5 @@
 import 'package:kumino/kumino.dart';
+import 'package:kumino/annotations.dart';
 
 import 'controller/books_controller.dart';
 import 'controller/members_controller.dart';
@@ -21,6 +22,6 @@ import 'service/review.dart';
     BookService,
     MemberService,
     ReviewService,
-  ]
+  ],
 )
-class AppDelegate {}
+class App {}

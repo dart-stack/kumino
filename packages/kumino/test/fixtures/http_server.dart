@@ -11,7 +11,7 @@ class HttpServerTestFixture {
   Future<void> setUp() async {
     server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
     TestLogger.info(
-        'HTTP server is running at ${server.address.address}:${server.port}');
+        'HTTP server is running at http://${server.address.address}:${server.port}');
     client = HttpClient();
   }
 
@@ -22,12 +22,17 @@ class HttpServerTestFixture {
   Future<HttpClientResponse> send(
     String method,
     String path, {
-    HttpClientRequest Function(HttpClientRequest)? configure,
+    void Function(HttpClientRequest)? configure,
     Duration? timeout,
-  }) async {
+  }) {
     return client
         .open(method, server.address.address, server.port, path)
-        .then((req) => (configure?.call(req) ?? req).done);
+        .then((req) {
+      if (configure != null) {
+        configure(req);
+      }
+      return req.close();
+    });
   }
 }
 

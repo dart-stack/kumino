@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:kumino/kumino.dart';
+import 'package:kumino/annotations.dart';
 
 import '../model/member.dart';
 import '../service/review.dart';
 
-@EventListener()
+@Component()
 class NewMemberRequestListener {
   NewMemberRequestListener({
     required this.reviewService,
@@ -13,7 +13,8 @@ class NewMemberRequestListener {
 
   final ReviewService reviewService;
 
-  FutureOr handleEvent(EventContext context, NewMemberRequest event) async {
+  @EventListener(subscribeTo: NewMemberRequest)
+  FutureOr handleEvent(NewMemberRequest event) async {
     reviewService.addNewMemberRequest(event);
   }
 }

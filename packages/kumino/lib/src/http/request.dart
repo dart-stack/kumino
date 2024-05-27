@@ -1,19 +1,19 @@
-import '_internal/http_types.dart';
+import 'dart:io';
 
-abstract interface class HttpRequest implements DartHttpRequest {
-  QueryParametersAccessor get query;
-
-  PathParametersAccessor get params;
-}
-
-abstract interface class PathParametersAccessor {
+class PathParametersAccessor {
   T value<T>(String name) {
     throw UnimplementedError();
   }
 }
 
-abstract interface class QueryParametersAccessor {
+class QueryParametersAccessor {
   T value<T>(String name) {
     throw UnimplementedError();
   }
+}
+
+extension EnhancedHttpRequest on HttpRequest {
+  QueryParametersAccessor get query => QueryParametersAccessor();
+
+  PathParametersAccessor get params => PathParametersAccessor();
 }

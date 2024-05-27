@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:kumino/kumino.dart';
+import 'package:kumino/annotations.dart';
 
 import '../service/book.dart';
 import '../interceptor/auth.dart';
@@ -6,7 +9,7 @@ import '../interceptor/log.dart';
 
 @ApiController(
   prefix: '/api/v1/books',
-  interceptors: [TraceFootprint]
+  interceptors: [TraceFootprint],
 )
 class BooksController {
   BooksController({
@@ -15,15 +18,15 @@ class BooksController {
 
   final BookService bookService;
 
-  @HttpGet(path: "/")
+  @GetRoute(path: "/")
   Future getBook(HttpRequest request) async {
     final bookId = request.query.value("bookId");
     return bookService.getBook(bookId!);
   }
 
-  @HttpPost(path: "/", interceptors: [RequireLogin])
-  Future updateBook(HttpRequest request) async {
-
-  }
-
+  @PostRoute(
+    path: "/",
+    interceptors: [RequireLogin],
+  )
+  Future updateBook(HttpRequest request) async {}
 }

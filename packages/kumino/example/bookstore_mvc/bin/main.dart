@@ -4,6 +4,5 @@ import 'package:kumino/reflect.dart';
 import 'package:bookstore_mvc/app.dart';
 
 void main(List<String> args) async {
-  final app = Application(delegateTo<AppDelegate>());
-  await app.run();
+  final app = Application(delegateTo<App>());
 }

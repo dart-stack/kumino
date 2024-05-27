@@ -1,4 +1,4 @@
-import 'package:kumino/kumino.dart';
+import 'package:kumino/annotations.dart';
 
 import '../model/book.dart';
 

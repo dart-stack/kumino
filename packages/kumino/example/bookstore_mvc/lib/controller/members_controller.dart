@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:kumino/kumino.dart';
+import 'package:kumino/annotations.dart';
 
 import '../model/member.dart';
 import '../service/member.dart';
@@ -17,7 +19,7 @@ class MembersController {
 
   final MemberService memberService;
 
-  @HttpPut(path: "/")
+  @PutRoute(path: "/")
   FutureOr register(HttpRequest request) async {
     final req = await request.serializeBodyAs<NewMemberRequest>();
     await memberService.checkNewMemberRequest(req);

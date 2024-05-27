@@ -1,13 +1,15 @@
-class Controllers {
-  const Controllers(this.controllers);
+import 'package:meta/meta_meta.dart';
+
+@Target({TargetKind.classType})
+class ControllersAnnotation {
+  const ControllersAnnotation(this.controllers);
 
   final List<Type> controllers;
 }
 
-class Controller {}
-
-class ApiController implements Controller {
-  const ApiController({
+@Target({TargetKind.classType})
+class ControllerAnnotation {
+  const ControllerAnnotation({
     this.prefix = '',
     this.interceptors = const [],
   });
@@ -16,8 +18,17 @@ class ApiController implements Controller {
   final List<Type> interceptors;
 }
 
-class RouteMapping {
-  const RouteMapping({
+@Target({TargetKind.classType})
+class ApiControllerAnnotation extends ControllerAnnotation {
+  const ApiControllerAnnotation({
+    super.prefix,
+    super.interceptors,
+  });
+}
+
+@Target({TargetKind.method})
+class RouteMappingAnnotation {
+  const RouteMappingAnnotation({
     required this.path,
     required this.method,
     this.interceptors = const [],
@@ -28,37 +39,42 @@ class RouteMapping {
   final List<Type> interceptors;
 }
 
-class HttpGet extends RouteMapping {
-  const HttpGet({
+@Target({TargetKind.method})
+class GetRouteAnnotation extends RouteMappingAnnotation {
+  const GetRouteAnnotation({
     required super.path,
     super.interceptors,
   }) : super(method: 'GET');
 }
 
-class HttpPost extends RouteMapping {
-  const HttpPost({
+@Target({TargetKind.method})
+class PostRouteAnnotation extends RouteMappingAnnotation {
+  const PostRouteAnnotation({
     required super.path,
     super.interceptors,
   }) : super(method: 'POST');
 }
 
-class HttpPut extends RouteMapping {
-  const HttpPut({
+@Target({TargetKind.method})
+class PutRouteAnnotation extends RouteMappingAnnotation {
+  const PutRouteAnnotation({
     required super.path,
     super.interceptors,
   }) : super(method: 'PUT');
 }
 
-class HttpDelete extends RouteMapping {
-  const HttpDelete({
-    required super.path,
-    super.interceptors,
-  }) : super(method: 'DELETE');
-}
-
-class HttpPatch extends RouteMapping {
-  const HttpPatch({
+@Target({TargetKind.method})
+class PatchRouteAnnotation extends RouteMappingAnnotation {
+  const PatchRouteAnnotation({
     required super.path,
     super.interceptors,
   }) : super(method: 'PATCH');
+}
+
+@Target({TargetKind.method})
+class DeleteRouteAnnotation extends RouteMappingAnnotation {
+  const DeleteRouteAnnotation({
+    required super.path,
+    super.interceptors,
+  }) : super(method: 'DELETE');
 }

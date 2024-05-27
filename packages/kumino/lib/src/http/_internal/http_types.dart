@@ -1,3 +1,3 @@
 import 'dart:io' as io;
 
-typedef DartHttpRequest = io.HttpRequest;
+typedef IOHttpRequest = io.HttpRequest;

@@ -1,0 +1,10 @@
+
+@host = http://127.0.0.1:50311
+
+###
+PUT {{host}}/api/v1/orders
+
+{"id": "123", "customerName": "Cats Inc.", "sku": "Cat"}
+###
+
+GET http://www.baidu.com
